@@ -4,7 +4,9 @@ import pytest
 from selenium import webdriver
 from pages.create_account_page import CreateAccountPage
 from pages.eco_friendly_page import EcoFriendlyPage
+from pages.sale_page import SalePage
 from selenium.webdriver.chrome.options import Options
+
 
 chrome_options = Options()
 chrome_options.add_experimental_option("detach", True)
@@ -27,4 +29,9 @@ def create_account_page(driver):
 @pytest.fixture()
 def eco_friendly_page(driver):
     return EcoFriendlyPage(driver)
+
+
+@pytest.fixture()
+def sale_page(driver):
+    return SalePage(driver)
 
