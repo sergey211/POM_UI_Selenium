@@ -15,6 +15,9 @@ class BasePage:
         else:
             raise NotImplementedError('This page cannot be opened by url')
 
+
+
+
     def find(self, locator):
         return self.driver.find_element(*locator)
 
