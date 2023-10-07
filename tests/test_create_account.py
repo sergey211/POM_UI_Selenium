@@ -1,5 +1,3 @@
-import random
-import string
 import time
 
 
@@ -16,7 +14,6 @@ def test_incorrect_data(create_account_page):
 
 def test_correct_data(create_account_page, fake_email):
     create_account_page.open()
-    # my_email = create_account_page.fake_email
     create_account_page.fill_create_form(f_name='Greg', l_name='Gromov', email=fake_email, passw='!QYUqw749',
                                          c_passw='!QYUqw749')
     assert create_account_page.reg_info == 'Thank you for registering with Main Website Store.'
