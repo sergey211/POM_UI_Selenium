@@ -17,7 +17,7 @@ def test_correct_data(create_account_page, fake_email):
     create_account_page.fill_create_form(f_name='Greg', l_name='Gromov', email=fake_email, passw='!QYUqw749',
                                          c_passw='!QYUqw749')
     assert create_account_page.reg_info == 'Thank you for registering with Main Website Store.'
-
+    create_account_page.driver.close()
 
 def test_registered_email(create_account_page, fake_email):
     create_account_page.open()
@@ -30,3 +30,4 @@ def test_registered_email(create_account_page, fake_email):
     assert create_account_page.reg_info == ('There is already an account with this email address. '
                                             'If you are sure that it is your email address, click here to get your '
                                             'password and access your account.')
+    create_account_page.driver.close()

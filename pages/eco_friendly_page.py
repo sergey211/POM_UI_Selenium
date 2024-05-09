@@ -24,6 +24,13 @@ class EcoFriendlyPage(BasePage):
     def page_title_text(self):
         return self.driver.find_element(*loc.page_title).text
 
+    def close_modal(self):
+        agree_button = self.driver.find_elements(*loc.agree_button)
+        time.sleep(3)
+        if len(agree_button) > 0:
+            agree_button[0].click()
+            print("window closed")
+
     def sort_by_price(self):
         wait = WebDriverWait(self.driver, 10)
         wait.until(EC.text_to_be_present_in_element(loc.greeting, "Default welcome msg!"))

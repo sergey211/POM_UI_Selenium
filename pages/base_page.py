@@ -1,5 +1,8 @@
+import time
+
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
+from pages.locators import eco_friendly_page_locs as loc
 
 
 class BasePage:
@@ -12,6 +15,11 @@ class BasePage:
     def open(self):
         if self.page_url:
             self.driver.get(f'{self.base_url}{self.page_url}')
+        agree_button = self.driver.find_elements(*loc.agree_button)
+        time.sleep(3)
+        if len(agree_button) > 0:
+            agree_button[0].click()
+            print("window closed")
         else:
             raise NotImplementedError('This page cannot be opened by url')
 
